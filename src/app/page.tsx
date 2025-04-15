@@ -81,7 +81,7 @@ export default function Home() {
   }, []);
 
 
-  const [stats] = useState<Stat[]>([
+  const [stats, setStats] = useState<Stat[]>([
     { label: 'Profile Views', value: '2.1k', change: '+8%' },
     { label: 'Job Matches', value: '144', change: '+5%' },
     { label: 'Network Reach', value: '15.8k', change: '+10%' }
@@ -142,7 +142,7 @@ export default function Home() {
               { label: 'Job Matches', value: Math.floor(140 + Math.random() * 60).toString(), change: `+${Math.floor(10 + Math.random() * 15)}%` },
               { label: 'Network Reach', value: (Math.floor(15000 + Math.random() * 8000) / 1000).toFixed(1) + 'k', change: `+${Math.floor(20 + Math.random() * 25)}%` }
             ];
-            setStats(newStats);
+            setStats(() => newStats);
           }
 
           // Update timeframe if interacting with timeframe button
